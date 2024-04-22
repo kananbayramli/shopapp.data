@@ -24,6 +24,7 @@ namespace shopapp.data.Concrete.EfCore
                 if (context.Products.Count() == 0)
                 {
                     context.Products.AddRange(Products);
+                    context.AddRange(ProductCategories);
                 }
             }
 
@@ -43,7 +44,17 @@ namespace shopapp.data.Concrete.EfCore
             new Product(){ Name = "IPhone 13", Price=2500,ImageUrl="3.jpg", Description="Yaxwi telfondur", IsApproved=true},
             new Product(){ Name = "IPhone 14 Max", Price=3000,ImageUrl="4.jpg", Description="Yaxwi telfondur", IsApproved=false},
             new Product(){ Name = "IPhone 15", Price=3500,ImageUrl="5.jpg", Description="Yaxwi telfondur", IsApproved=true}
+        };
 
+        private static ProductCategory[] ProductCategories = {
+            new ProductCategory(){ Product=Products[0], Category=Categories[0]},
+            new ProductCategory(){ Product=Products[0], Category=Categories[2]},
+            new ProductCategory(){ Product=Products[1], Category=Categories[0]},
+            new ProductCategory(){ Product=Products[1], Category=Categories[2]},
+            new ProductCategory(){ Product=Products[2], Category=Categories[0]},
+            new ProductCategory(){ Product=Products[2], Category=Categories[2]},
+            new ProductCategory(){ Product=Products[3], Category=Categories[0]},
+            new ProductCategory(){ Product=Products[3], Category=Categories[2]}
         };
     }
 }
