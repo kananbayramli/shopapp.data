@@ -16,12 +16,12 @@ namespace shopapp.data.Concrete.EfCore
             }
         }
 
-        public Product GetProductDetails(int id)
+        public Product GetProductDetails(string url)
         {
             using (var context = new ShopContext()) 
             {
                 return context.Products
-                                    .Where(p => p.ProductId == id)
+                                    .Where(p => p.Url == url)
                                     .Include(p => p.ProductCategories)
                                     .ThenInclude(c => c.Category)
                                     .FirstOrDefault();

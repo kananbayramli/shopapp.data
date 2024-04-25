@@ -54,6 +54,9 @@ namespace shopapp.data.Migrations
                     b.Property<decimal?>("Price")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Url")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("ProductId");
 
                     b.ToTable("Products");
