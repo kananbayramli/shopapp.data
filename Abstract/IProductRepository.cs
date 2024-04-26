@@ -9,6 +9,7 @@ namespace shopapp.data.Abstract
         List<Product> GetProductsByCategory(string name, int page, int pageSie);
         List<Product> GetPopularProducts();
         List<Product> GetTop5Products();
+        List<Product> GetHomePageProducts();
         int GetCountByCategory(string category);
     }
 }
