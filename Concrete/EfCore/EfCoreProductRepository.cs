@@ -39,13 +39,6 @@ namespace shopapp.data.Concrete.EfCore
             }
         }
 
-        public List<Product> GetPopularProducts()
-        {
-            using (var context = new ShopContext()) 
-            {
-                return context.Products.ToList();
-            }
-        }
 
         public Product GetProductDetails(string url)
         {
@@ -80,9 +73,17 @@ namespace shopapp.data.Concrete.EfCore
             }
         }
 
-        public List<Product> GetTop5Products()
+        public List<Product> GetSearchResult(string searchString)
         {
-            throw new System.NotImplementedException();
+            using (var context = new ShopContext())
+            {
+                var products = context
+                    .Products
+                    .Where(i => i.IsApproved && (i.Name.ToLower().Contains(searchString) || i.Description.ToLower().Contains(searchString)))
+                    .AsQueryable();
+
+                return products.ToList();
+            }
         }
     }
 }
