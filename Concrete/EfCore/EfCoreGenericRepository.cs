@@ -8,51 +8,46 @@ using System.Threading.Tasks;
 
 namespace shopapp.data.Concrete.EfCore
 {
-    public class EfCoreGenericRepository<TEntity, TContext> : IRepository<TEntity>
+    public class EfCoreGenericRepository<TEntity> : IRepository<TEntity>
         where TEntity : class
-        where TContext : DbContext, new()
     {
-        public void Create(TEntity entity)
+        protected readonly DbContext context;
+
+        public EfCoreGenericRepository(DbContext ctx)
         {
-            using (var context = new TContext()) 
-            {
-                context.Set<TEntity>().Add(entity);
-                context.SaveChanges();
-            }
+            context = ctx;
+        }
+
+        public void Create(TEntity entity)
+        { 
+            context.Set<TEntity>().Add(entity);
+            context.SaveChanges();  
         }
 
         public void Delete(TEntity entity)
         {
-            using (var context = new TContext())
-            {
-                context.Set<TEntity>().Remove(entity);
-                context.SaveChanges();
-            }
+            context.Set<TEntity>().Remove(entity);
+            context.SaveChanges();
+            
         }
 
         public List<TEntity> GetAll()
         {
-            using (var context = new TContext())
-            {
-                return context.Set<TEntity>().ToList();
-            }
+            return context.Set<TEntity>().ToList();
+            
         }
 
         public TEntity GetById(int id)
         {
-            using (var context = new TContext())
-            {
-                return context.Set<TEntity>().Find(id);
-            }
+            return context.Set<TEntity>().Find(id);
+            
         }
 
         public virtual void Update(TEntity entity)
         {
-            using (var context = new TContext())
-            {
-                context.Entry(entity).State = EntityState.Modified;
-                context.SaveChanges();
-            }
+            context.Entry(entity).State = EntityState.Modified;
+            context.SaveChanges();
+            
         }
     }
 }
