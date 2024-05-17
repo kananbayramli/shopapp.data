@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using shopapp.data.Configurations;
 using shopapp.entity;
 
 namespace shopapp.data.Concrete.EfCore
@@ -9,7 +10,6 @@ namespace shopapp.data.Concrete.EfCore
         {
             
         }
-
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -25,8 +25,8 @@ namespace shopapp.data.Concrete.EfCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ProductCategory>()
-                .HasKey(c => new {c.CategoryId, c.ProductId });
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductCategoryConfiguration());
         }
     }
 }

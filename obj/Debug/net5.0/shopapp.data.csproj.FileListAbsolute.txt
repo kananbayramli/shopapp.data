@@ -15,4 +15,5 @@ C:\Users\SAMSUNG\Desktop\shopapp\shopapp.data\obj\Debug\net5.0\shopapp.data.dll
 C:\Users\SAMSUNG\Desktop\shopapp\shopapp.data\obj\Debug\net5.0\shopapp.data.pdb
 C:\Users\SAMSUNG\Desktop\shopapp\shopapp.data\obj\Debug\net5.0\shopapp.data.genruntimeconfig.cache
 C:\Users\SAMSUNG\Desktop\shopapp\shopapp.data\obj\Debug\net5.0\ref\shopapp.data.dll
-C:\Users\SAMSUNG\Desktop\shopapp\shopapp.data\bin\Debug\net5.0\ref\shopapp.data.dll
+C:\Users\SAMSUNG\Desktop\shopapp\shopapp.data\obj\Debug\net5.0\shopapp.data.sourcelink.json
+C:\Users\SAMSUNG\Desktop\shopapp\shopapp.data\obj\Debug\net5.0\refint\shopapp.data.dll
